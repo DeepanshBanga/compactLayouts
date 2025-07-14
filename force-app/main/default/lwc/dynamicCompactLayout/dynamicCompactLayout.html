@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Compact Layout (Dynamic)">
+        <template if:true={recordId}>
+            <lightning-record-view-form
+                record-id={recordId}
+                object-api-name="Account"
+            >
+                <template if:true={fields.length}>
+                    <template for:each={fields} for:item="field">
+                        <lightning-output-field key={field} field-name={field}></lightning-output-field>
+                    </template>
+                </template>
+                <template if:false={fields.length}>
+                    <p class="slds-p-around_medium">No fields to display.</p>
+                </template>
+            </lightning-record-view-form>
+        </template>
+    </lightning-card>
+</template>
