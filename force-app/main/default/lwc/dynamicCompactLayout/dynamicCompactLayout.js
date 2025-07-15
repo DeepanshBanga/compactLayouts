@@ -13,6 +13,7 @@ export default class DynamicCompactLayout extends LightningElement {
     recordFields = [];
     error;
 
+    // Store dynamic recordName field (e.g., 'Email')
     recordNameField;
 
     @wire(getRecordUi, { recordIds: '$recordId', layoutTypes: ['Compact'], modes: ['View'] })
@@ -58,6 +59,7 @@ export default class DynamicCompactLayout extends LightningElement {
             console.warn(`Fallback inferred objectApiName: ${this.objectApiName}`);
         }
 
+        // Fetch the dynamic record name field from metadata
         if (this.objectApiName) {
             getRecordNameField({ objectApiName: this.objectApiName })
                 .then(fieldName => {
@@ -68,6 +70,7 @@ export default class DynamicCompactLayout extends LightningElement {
                 });
         }
 
+        // Get the rest of the field data
         if (this.objectApiName && this.recordId) {
             getObjectFieldData({ objectApiName: this.objectApiName, recordId: this.recordId })
                 .then(result => {
