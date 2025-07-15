@@ -1,19 +1,50 @@
 <template>
-    <lightning-card title="Compact Layout (Dynamic)">
-        <template if:true={recordId}>
-            <lightning-record-view-form
-                record-id={recordId}
-                object-api-name="Account"
-            >
-                <template if:true={fields.length}>
-                    <template for:each={fields} for:item="field">
-                        <lightning-output-field key={field} field-name={field}></lightning-output-field>
+    <lightning-card>
+        <div class="slds-p-horizontal_medium slds-p-vertical_small">
+            <div class="slds-m-bottom_medium slds-grid slds-align-start">
+                <lightning-icon icon-name={objectIconUrl} size="medium" class="slds-m-right_small"></lightning-icon>
+                    <div>
+                        <h1 class="slds-text-heading_medium">{objectLabel}</h1>
+                        <template if:true={recordName}>
+                            <p class="slds-text-body_regular slds-text-color_weak" style="white-space: pre-line;">
+                                {recordName}
+                            </p>
+                        </template> 
+                   </div>
+            </div>
+
+            <template if:true={recordFields}>
+                <div class="slds-grid slds-wrap">
+                    <template for:each={recordFields} for:item="field">
+                        <div key={field.apiName} class="slds-col slds-size_1-of-2 slds-p-around_small">
+                            <p class="slds-text-title_caps">{field.label}</p>
+
+                            <template lwc:if={field.isEmail}>
+                                <lightning-formatted-email value={field.value}></lightning-formatted-email>
+                            </template>
+                            <template lwc:elseif={field.isPhone}>
+                                <lightning-formatted-phone value={field.value}></lightning-formatted-phone>
+                            </template>
+                            <template lwc:elseif={field.isUrl}>
+                                <lightning-formatted-url value={field.value} target="_blank"></lightning-formatted-url>
+                            </template>
+                            <template lwc:elseif={field.isDate}>
+                                <lightning-formatted-date-time value={field.value}></lightning-formatted-date-time>
+                            </template>
+                            <template lwc:elseif={field.isBoolean}>
+                                <lightning-formatted-text value={field.value}></lightning-formatted-text>
+                            </template>
+                            <template lwc:else>
+                                <lightning-formatted-text value={field.value}></lightning-formatted-text>
+                            </template>
+                        </div>
                     </template>
-                </template>
-                <template if:false={fields.length}>
-                    <p class="slds-p-around_medium">No fields to display.</p>
-                </template>
-            </lightning-record-view-form>
-        </template>
+                </div>
+            </template>
+
+            <template if:true={error}>
+                <p class="slds-text-color_error">Error: {error}</p>
+            </template>
+        </div>
     </lightning-card>
 </template>

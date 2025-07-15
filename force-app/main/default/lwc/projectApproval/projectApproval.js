@@ -26,6 +26,9 @@ export default class ProjectApproval extends LightningElement {
         updateRecord({ fields })
             .then(() => {
                 this.isApproved = true;
+                window.alert('Account approved');
+                window.location.reload();
+
             })
             .catch(error => {
                 console.error('Error approving record:', error);

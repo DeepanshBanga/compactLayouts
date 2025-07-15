@@ -9,6 +9,9 @@
         <targetConfig targets="lightning__RecordPage">
             <objects>
                 <object>Account</object>
+                <object>Contact</object>
+                <object>Opportunity</object>
+                <object>Case</object>
             </objects>
         </targetConfig>
     </targetConfigs>
