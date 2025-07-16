@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2025-07-16T08:45:27.000Z" hostname="https://wise-badger-sbvxdj-dev-ed.trailblaze.my.salesforce.com" tests="5" failures="2"  errors="0"  time="0.17">
+        <properties>
+            <property name="outcome" value="Failed"/>
+            <property name="testsRan" value="5"/>
+            <property name="passing" value="3"/>
+            <property name="failing" value="2"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="60%"/>
+            <property name="failRate" value="40%"/>
+            <property name="testStartTime" value="Wed Jul 16 2025 2:15:27 pm"/>
+            <property name="testSetupTimeInMs" value="133"/>
+            <property name="testExecutionTime" value="0.17 s"/>
+            <property name="testTotalTime" value="0.30 s"/>
+            <property name="commandTime" value="0.29 s"/>
+            <property name="hostname" value="https://wise-badger-sbvxdj-dev-ed.trailblaze.my.salesforce.com"/>
+            <property name="orgId" value="00DNS00000RmPiv2AF"/>
+            <property name="username" value="deepanshbanga312@wise-badger-sbvxdj.com"/>
+            <property name="testRunId" value="707NS000010gI1i"/>
+            <property name="userId" value="005NS00000SBLXFYA5"/>
+            <property name="coveredLines" value="51"/>
+            <property name="testRunCoverage" value="85%"/>
+            <property name="orgWideCoverage" value="85%"/>
+        </properties>
+        <testcase name="testGetObjectFieldData_MissingObjectName" classname="DynamicCompactLayoutControllerTest" time="0.01">
+            <failure message="System.AssertException: Assertion Failed: Unexpected error message"><![CDATA[Class.DynamicCompactLayoutControllerTest.testGetObjectFieldData_MissingObjectName: line 67, column 1]]></failure>
+        </testcase>
+        <testcase name="testGetObjectFieldData_ValidAccount" classname="DynamicCompactLayoutControllerTest" time="0.14">
+            <failure message="System.AuraHandledException: Script-thrown exception"><![CDATA[Class.DynamicCompactLayoutController.getObjectFieldData: line 50, column 1
+Class.DynamicCompactLayoutControllerTest.testGetObjectFieldData_ValidAccount: line 21, column 1]]></failure>
+        </testcase>
+        <testcase name="testGetRecordNameField_NoMetadata" classname="DynamicCompactLayoutControllerTest" time="0.01">
+        </testcase>
+        <testcase name="testGetRecordNameField_ValidMetadata" classname="DynamicCompactLayoutControllerTest" time="0.01">
+        </testcase>
+    </testsuite>
+</testsuites>

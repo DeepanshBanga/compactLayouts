@@ -2,6 +2,7 @@ import { LightningElement, api, wire } from 'lwc';
 import { getRecordUi } from 'lightning/uiRecordApi';
 import getObjectFieldData from '@salesforce/apex/DynamicCompactLayoutController.getObjectFieldData';
 import getRecordNameField from '@salesforce/apex/DynamicCompactLayoutController.getRecordNameField';
+import getObjectInfo from '@salesforce/apex/DynamicCompactLayoutController.getObjectInfo';
 
 export default class DynamicCompactLayout extends LightningElement {
     @api recordId;
@@ -15,7 +16,16 @@ export default class DynamicCompactLayout extends LightningElement {
 
     // Store dynamic recordName field (e.g., 'Email')
     recordNameField;
-
+    @wire(getObjectInfo, { objectApiName: '$objectApiName' })
+    objectMetadata({ data, error }) {
+        if (data) {
+            this.objectLabel = data.label;
+            this.objectIconUrl = data.iconUrl; // or use SLDS icon fallback
+        } else if (error) {
+            this.error = error.body.message;
+        }
+    }
+    
     @wire(getRecordUi, { recordIds: '$recordId', layoutTypes: ['Compact'], modes: ['View'] })
     wiredRecordUi({ data, error }) {
         if (data) {

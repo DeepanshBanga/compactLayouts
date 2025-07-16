@@ -98,4 +98,26 @@ public with sharing class DynamicCompactLayoutController {
 
         return null;
     }
+    @AuraEnabled(cacheable=true)
+public static Map<String, String> getObjectInfo(String objectApiName) {
+    if (String.isBlank(objectApiName)) {
+        throw new AuraHandledException('Missing object API name.');
+    }
+
+    try {
+        Schema.DescribeSObjectResult objDescribe = Schema.getGlobalDescribe().get(objectApiName).getDescribe();
+
+        Map<String, String> info = new Map<String, String>();
+        info.put('label', objDescribe.getLabel());
+        info.put('labelPlural', objDescribe.getLabelPlural());
+        info.put('apiName', objectApiName);
+        info.put('iconUrl', '/img/icon/t4v35/standard/' + objectApiName.toLowerCase() + '_120.png'); // Best-effort guess
+        info.put('isCustom', String.valueOf(objDescribe.isCustom()));
+
+        return info;
+    } catch (Exception e) {
+        throw new AuraHandledException('Error retrieving object info: ' + e.getMessage());
+    }
+}
+
 }

@@ -1,0 +1,40 @@
+=== Test Results
+TEST NAME                                                                OUTCOME  MESSAGE  RUNTIME (MS)
+───────────────────────────────────────────────────────────────────────  ───────  ───────  ────────────
+DynamicCompactLayoutControllerTest.testGetObjectFieldData_Account        Pass              386         
+DynamicCompactLayoutControllerTest.testGetObjectFieldData_Contact        Pass              120         
+DynamicCompactLayoutControllerTest.testGetObjectFieldData_InvalidObject  Pass              37          
+DynamicCompactLayoutControllerTest.testGetObjectFieldData_Opportunity    Pass              58          
+DynamicCompactLayoutControllerTest.testGetObjectInfo_Invalid             Pass              34          
+DynamicCompactLayoutControllerTest.testGetObjectInfo_Valid               Pass              47          
+DynamicCompactLayoutControllerTest.testGetRecordNameField_Invalid        Pass              12          
+DynamicCompactLayoutControllerTest.testGetRecordNameField_Valid          Pass              11          
+
+
+=== Apex Code Coverage by Class
+CLASSES                         PERCENT  UNCOVERED LINES
+──────────────────────────────  ───────  ───────────────
+DynamicCompactLayoutController  95%      6,95,96,104    
+
+
+=== Test Setup Time by Test Class for Run 707NS000010gfo0
+TEST SETUP METHOD NAME                            SETUP TIME
+────────────────────────────────────────────────  ──────────
+DynamicCompactLayoutControllerTest.setupTestData  660       
+
+
+=== Test Summary
+NAME                 VALUE                                  
+───────────────────  ───────────────────────────────────────
+Outcome              Passed                                 
+Tests Ran            9                                      
+Pass Rate            100%                                   
+Fail Rate            0%                                     
+Skip Rate            0%                                     
+Test Run Id          707NS000010gfo0                        
+Test Setup Time      660 ms                                 
+Test Execution Time  705 ms                                 
+Test Total Time      1365 ms                                
+Org Id               00DNS00000RmPiv2AF                     
+Username             deepanshbanga312@wise-badger-sbvxdj.com
+Org Wide Coverage    94%                                    

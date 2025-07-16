@@ -1,0 +1,14 @@
+.field-container {
+    margin-bottom: 1rem;
+}
+
+.border-line {
+    width: 90%;
+    border-bottom: 1px solid #d8dde6;
+    padding-bottom: 0.5rem;
+}
+
+.white-border-card {
+    border: none !important;
+    box-shadow: none !important;
+}
